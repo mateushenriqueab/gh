@@ -11,3 +11,8 @@ New-NetFirewallRule `
 (Get-NetIPAddress `
   -InterfaceAlias "vEthernet (Default Switch)" `
   -AddressFamily IPv4).IPAddress
+
+
+Get-NetTCPConnection -State Listen |
+Select-Object LocalAddress, LocalPort |
+Sort-Object LocalPort
